@@ -3,7 +3,6 @@ services:
   app:
     build: .
     ports:
-      - "5000:5000"
-    command: npm run build
-    environment:
-      - NODE_ENV=development
+      - "3000:3000"
+    env_file:
+      - .env

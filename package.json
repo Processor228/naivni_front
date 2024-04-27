@@ -16,6 +16,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-node": "^5.0.1",
+		"@sveltejs/adapter-static": "^3.0.1",
 		"leaflet": "^1.9.4",
 		"svelte-leaflet": "^0.2.0"
 	}
