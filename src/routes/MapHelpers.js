@@ -21,4 +21,3 @@ export function carStyleFactory(transport_type) {
     return `background: ${color}; border-radius: 100%; display: block; width: 8px; height: 8px;`;
 }
 
-

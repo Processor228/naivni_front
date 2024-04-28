@@ -18,7 +18,9 @@
 	"dependencies": {
 		"@sveltejs/adapter-node": "^5.0.1",
 		"@sveltejs/adapter-static": "^3.0.1",
+		"chart.js": "^4.4.2",
 		"leaflet": "^1.9.4",
+		"svelte-chartjs": "^3.1.5",
 		"svelte-leaflet": "^0.2.0"
 	}
 }
