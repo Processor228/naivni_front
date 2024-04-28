@@ -61,7 +61,8 @@
 <style global>
     @import 'leaflet/dist/leaflet.css';
     main div {
-        height: 500px;
-        width: 500px;
+        margin: 7vh;
+        height: 80vh;
+        width: 80vh;
     }
 </style>

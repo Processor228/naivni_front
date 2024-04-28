@@ -22,15 +22,12 @@
                 }]
             },
             options: {
-                maintainAspectRatio: false
+                maintainAspectRatio: true
             }
         });
     });
-    $: {
-        if (chart) chart.update();
-    }
 </script>
 
 <div>
-    <canvas id="chart" style="width: 400px; height: 300px"></canvas>
+    <canvas id="chart" style="width: 600px; height: 300px"></canvas>
 </div>
