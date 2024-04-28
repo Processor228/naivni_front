@@ -8,12 +8,12 @@ export const transport_classes = {
     5: 'bus'
 }
 export const transport_colors = {
-    0: 'blue',
-    1: 'green',
-    2: 'yellow',
-    3: 'red',
-    4: 'pink',
-    5: 'purple'
+    0: '#fced01',
+    1: '#3e7d22',
+    2: '#3a0464',
+    3: '#053971',
+    4: '#04a8ab',
+    5: '#ffa711'
 }
 
 export function carStyleFactory(transport_type) {
