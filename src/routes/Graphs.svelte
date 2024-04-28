@@ -10,7 +10,15 @@ let load_data = [];
 let load_labels = [];
 let load_chart;
 
+const load_graph_buffer_len = 12;
+
 let types_data = [];
+
+function add_zero_if_needed(value) {
+    if (value >= 10)
+        return value
+    return "0" + value
+}
 
 onMount(() => {
     if (browser) {
@@ -22,13 +30,26 @@ onMount(() => {
         socket = new WebSocket(websocket_address);
 
         socket.onmessage = function (event) {
-            const socket_data = JSON.parse(event.data);
+            const data = JSON.parse(event.data);
+            const unix_ms = data.timestamp
+            const date = new Date(unix_ms); // Multiply by 1000 to convert seconds to milliseconds
 
-            if (!load_labels.includes(socket_data.timestamp)) {
-                load_labels.push(socket_data.timestamp);
-                load_data.push(socket_data.average_load);
-                types_data = socket_data.transport_types;
-                if (load_chart) load_chart.update();
+            const hours = add_zero_if_needed(date.getHours());
+            const minutes = add_zero_if_needed(date.getMinutes());
+            const seconds = add_zero_if_needed(date.getSeconds());
+
+            const readable_stamp = `${hours}:${minutes}:${seconds}`
+
+            if (!load_chart.data.labels.includes(readable_stamp)) {
+                while (load_chart.data.labels.length > load_graph_buffer_len) {
+                    load_chart.data.datasets[0].data.shift();
+                    load_chart.data.labels.shift();
+                }
+
+                load_chart.data.labels.push(readable_stamp);
+                load_chart.data.datasets[0].data.push(data.average_load);
+                types_data = data.transport_types;
+                load_chart.update(); // Update the chart to reflect the new data
             }
         }
     }
