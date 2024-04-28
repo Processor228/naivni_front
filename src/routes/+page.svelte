@@ -1,7 +1,7 @@
 <script>
     import Map from "./Map.svelte"
-    import AverageLoadGraph from "./AverageLoadGraph.svelte";
+    import Graphs from "./Graphs.svelte";
 </script>
 
 <Map/>
-<AverageLoadGraph/>
+<Graphs/>
