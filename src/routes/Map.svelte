@@ -18,6 +18,7 @@
             socket = new WebSocket(websocket_address);
 
             map = leaflet.map(mapElement).setView([55.797496, 49.243416], 18);  // 18 is zoom bro
+            map.attributionControl.setPrefix(false);
 
             leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             }).addTo(map);
